@@ -8,10 +8,10 @@ import praktikum.IngredientType;
 import java.util.Random;
 
 public class IngredientTest {
-    Ingredient ingredient;
-    String ingredientNameExpected;
-    float ingredientPriceExpected;
-    IngredientType ingredientTypeExpected;
+    private Ingredient ingredient;
+    private String ingredientNameExpected;
+    private float ingredientPriceExpected;
+    private IngredientType ingredientTypeExpected;
 
     @Before
     public void setUp() {

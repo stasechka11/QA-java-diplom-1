@@ -15,14 +15,14 @@ import praktikum.Ingredient;
 
 @RunWith(Parameterized.class)
 public class BurgerGetPriceParameterizedTest {
-    Burger burger;
+    private Burger burger;
     @Mock
-    Bun bun;
+    private Bun bun;
     @Mock
-    Ingredient ingredient;
+    private Ingredient ingredient;
 
-    int ingredientCount;
-    float expectedPrice;
+    private final int ingredientCount;
+    private final float expectedPrice;
 
     @Rule
     public MockitoRule mockitoRule = MockitoJUnit.rule();

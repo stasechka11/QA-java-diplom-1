@@ -8,11 +8,11 @@ import praktikum.Ingredient;
 import praktikum.IngredientType;
 
 public class BurgerTest {
-    Burger burger;
+    private Burger burger;
     @Mock
-    Ingredient ingredient;
+    private Ingredient ingredient;
 
-    int ingredientsListSize;
+    private int ingredientsListSize;
 
     @Before
     public void setUp() {

@@ -7,9 +7,9 @@ import praktikum.Bun;
 import java.util.Random;
 
 public class BunTest {
-    Bun bun;
-    String bunNameExpected;
-    Float bunPriceExpected;
+    private Bun bun;
+    private String bunNameExpected;
+    private Float bunPriceExpected;
 
     @Before
     public void setUp() {
