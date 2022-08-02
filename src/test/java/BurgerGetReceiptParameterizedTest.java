@@ -18,12 +18,10 @@ import java.util.regex.Pattern;
 
 @RunWith(Parameterized.class)
 public class BurgerGetReceiptParameterizedTest {
-    Burger burger;
-
-    Bun bun;
-
-    int ingredientCount;
-    Ingredient ingredient1;
+    private Burger burger;
+    private final int ingredientCount;
+    private Ingredient ingredient1;
+    private Pattern pattern;
 
     public BurgerGetReceiptParameterizedTest(int ingredientCount) {
         this.ingredientCount = ingredientCount;
@@ -41,9 +39,10 @@ public class BurgerGetReceiptParameterizedTest {
     @Before
     public void setUp() {
         burger = new Burger();
-        bun = new Bun("Black bun", 100);
+        Bun bun = new Bun("Black bun", 100);
         burger.setBuns(bun);
         ingredient1 = new Ingredient(IngredientType.FILLING, "meat", 200);
+        pattern = Pattern.compile("(\\(==== .+ ====\\)\r\\n)(= .+ =\r\\n)*\\(==== .+ ====\\)\r\\n(\r\\nPrice: \\d+,\\d+\r\n)");
     }
 
     @Test
@@ -54,7 +53,6 @@ public class BurgerGetReceiptParameterizedTest {
 
         String receipt = burger.getReceipt();
 
-        Pattern pattern = Pattern.compile("(\\(==== .+ ====\\)\r\\n)(= .+ =\r\\n)*\\(==== .+ ====\\)\r\\n(\r\\nPrice: \\d+,\\d+\r\n)");
         Matcher matcher = pattern.matcher(receipt);
 
         Assert.assertTrue(matcher.matches());
